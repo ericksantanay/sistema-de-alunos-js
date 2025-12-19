@@ -70,7 +70,7 @@ body {
     color: white;
 }
 
-#container-resul {
+#lista {
     max-height: 480px;
     padding: 20px;
     border-radius: 5px;
@@ -79,7 +79,7 @@ body {
     margin-left: 30px;
 }
 
-#container-resul > h1 {
+#lista > h1 {
     text-align: center;
     color: blue;
 }
