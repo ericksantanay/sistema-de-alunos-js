@@ -8,3 +8,14 @@ indice = 0
 let estatisca = document.getElementById('estatisca')
 let res = document.getElementById('lista')
 
+// Função adicionar
+function Adicionar() {
+    let nome = document.getElementById('nome').value
+    let nota = document.getElementById('nota').value
+
+    if (nome === '' && nota === '') {
+        alert('Preencha os Campos!')
+    }
+
+    
+}
