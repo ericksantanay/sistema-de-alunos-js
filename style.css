@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    /*FONTES*/
+    --font-poppin: "Poppins", sans-serif;
+
+    /*CORES*/
+    --blue-claro: rgb(77, 194, 233);
+    --blue-escuro: rgb(13, 13, 242);
+    --white: white;
+}
+
+body {
+    font-family: var(--font-poppin);
+    height: 97vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(237, 237, 237);
+}
+
+#container {
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+    border-radius: 9px;
+    box-shadow: 2px 1px 1px 10px rgba(177, 177, 177, 0.026);
+    margin-bottom: 30px;
+}
+
+#container > h1 {
+    text-align: center;
+    font-weight: 600;
+    color: var(--blue-claro);
+}
+
+#dados-alunos {
+    border-radius: 5px;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    padding: 10px;
+}
+
+#dados-alunos > input {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid black;
+    margin: 10px;
+}
+
+.btn {
+    padding: 12px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--blue-claro);
+    color: var(--white);
+    font-weight: 500;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: rgb(27, 132, 168);
+}
+
+#estatisca {
+    margin-top: 10px;
+    background-color: rgb(17, 185, 236);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
+
+#container-resul {
+    max-height: 480px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: var(--white);
+    overflow-y: scroll;
+    margin-left: 30px;
+}
+
+#container-resul > h1 {
+    text-align: center;
+    color: blue;
+}
+
+.alunos {
+    width: 300px;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--blue-claro);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.alunos > button {
+    background-color: red;
+    border: none;
+    color: var(--white);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: .3s ease-in-out;
+}
+
+.alunos > button:hover {
+    background-color: rgb(203, 0, 0);
+}
+
+
