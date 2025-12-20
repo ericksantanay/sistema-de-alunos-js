@@ -26,7 +26,7 @@ let menorNota = Infinity
 //#################################
 // Essa seria a media para 'passar de ano' 
 //#################################
-let mediaPassarDeAno = 5
+let mediaPassarDeAno = 7
 
 //#################################
 // Aprovados
@@ -41,7 +41,7 @@ let reprovados = 0
 //#################################
 // Recuperação
 //#################################
-let recuperação
+let recuperação = 0
 
 //#################################
 // Saidas
@@ -114,10 +114,14 @@ function atualizarLista() {
     //Server para não repetir 
     res.innerHTML = ''
     media = 0 // zerarando a soma antes do forEach. // Reset da soma!!!
-   
+    indice = 0
+    aprovados = 0
+    reprovados = 0
+    recuperação = 0
 
-
+    //#################################
     // Laço que vai percorrer o array 
+    //#################################
     armazenarDados.forEach((item, indice) => {
         
         res.innerHTML += 
@@ -129,28 +133,36 @@ function atualizarLista() {
             </div>
         `
         media += item.nota // Acumulando o valor
-
+        
+        //#################################
         // Maior nota 
+        //#################################
         if (item.nota > maiorNota) {
             maiorNota = item.nota
         }
 
-
+        //#################################
         //Menor Nota
+        //#################################
         if (item.nota < menorNota) {
             menorNota = item.nota
         }
 
-        // Aprovados
+        //#################################
+        // Quantidade de Aprovados
+        //#################################
         if (item.nota >= mediaPassarDeAno) {
-            indice++
-            aprovados = indice
+            aprovados++
+            return
+        }else if (item.nota >= 5 && item.nota < mediaPassarDeAno) {
+            // Quantidade de recuperação
+            recuperação++
+        }else if (item.nota < 5){
+            // Quantidade de reprovados
+            reprovados++
         }
 
     });
-
-    
-
     
 }
 
@@ -180,6 +192,11 @@ function CalcularResultado() {
     //Aprovados
     ap.innerText = `Quantidade de aprovados: ${aprovados}`
 
+    // Reprovados
+    rep.innerText = `Quantidade de reprovados: ${reprovados}`
+
+    // Recuperação
+    rec.innerText = `Quantidade de recuperação: ${recuperação}`
 
     atualizarLista()
 }
