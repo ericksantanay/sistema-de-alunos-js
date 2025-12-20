@@ -46,11 +46,6 @@ let recuperação = 0
 let res = document.getElementById('lista')
 
 //#################################
-// Saidas da div status 
-//#################################
-const status = document.querySelectorAll('.status')
-
-//#################################
 // Saida das estatistica
 // Saida da media
 //#################################
@@ -92,10 +87,11 @@ function Adicionar() {
      //#################################
     // Essa é uma condição caso o campo seja vazio
     //#################################
-    if (nome === '') {
-        alert('Preencha os Campos!')
-        return
+    if (nome === '' || isNaN(nota) || nota < 0 || nota > 10) {
+    alert('Preencha os campos corretamente!')
+    return
     }
+
 
     // Aparecendo o nome dos alunos
     res.style.display = 'block'
@@ -134,7 +130,6 @@ function atualizarLista() {
     //#################################
     res.innerHTML = ''
     media = 0 // zerarando a soma antes do forEach. // Reset da soma!!!
-    indice = 0
     maiorNota = -Infinity
     menorNota = Infinity
     aprovados = 0
@@ -157,7 +152,9 @@ function atualizarLista() {
         `
         media += item.nota // Acumulando o valor
         
-
+        //#################################
+        // Saidas da div status 
+        //#################################
         const status = document.querySelectorAll('.status')
         const ultimoStatus = status[status.length - 1]   
 
@@ -211,7 +208,10 @@ function Remover(indice) {
 // Função da estatistica
 //#################################
 function CalcularResultado() {
-    mediaFinal = media / armazenarDados.length
+    if (armazenarDados.length === 0) return
+    let  mediaFinal = media / armazenarDados.length
+
+
 
     // Media da turma
     me.innerText = `Média geral da turma: ${mediaFinal.toFixed(2)}`
