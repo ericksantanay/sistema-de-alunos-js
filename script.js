@@ -24,6 +24,11 @@ let maiorNota = -Infinity
 let menorNota = Infinity
 
 //#################################
+// Essa seria a media para 'passar de ano' 
+//#################################
+let mediaPassarDeAno = 5
+
+//#################################
 // Aprovados
 //#################################
 let aprovados = 0
@@ -136,6 +141,12 @@ function atualizarLista() {
             menorNota = item.nota
         }
 
+        // Aprovados
+        if (item.nota >= mediaPassarDeAno) {
+            indice++
+            aprovados = indice
+        }
+
     });
 
     
@@ -166,7 +177,8 @@ function CalcularResultado() {
     // Menor Nota
     menorN.innerText = `Menor nota: ${menorNota}`
 
-
+    //Aprovados
+    ap.innerText = `Quantidade de aprovados: ${aprovados}`
 
 
     atualizarLista()
