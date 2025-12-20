@@ -43,6 +43,7 @@ let reprovados = 0
 //#################################
 let recuperação = 0
 
+
 //#################################
 // Saidas
 //#################################
@@ -80,6 +81,9 @@ let rep = document.getElementById('reprovados')
 let rec = document.getElementById('recuperacao')
 
 
+
+
+
 //#################################
 // Função adicionar
 //#################################
@@ -87,34 +91,53 @@ function Adicionar() {
     let nome = document.getElementById('nome').value
     let nota = Number(document.getElementById('nota').value)
 
+     //#################################
+    // Essa é uma condição caso o campo seja vazio
+    //#################################
     if (nome === '') {
         alert('Preencha os Campos!')
         return
     }
 
+
+    
     //#################################
     // Colocando tudo em um objeto
+    //#################################
     let dados = {
         nome: nome,
         nota: nota
     }
 
+    //#################################
+    //Levando o obj para o array
+    //#################################
     armazenarDados.push(dados)
+
 
     atualizarLista()
     
+    //#################################
+    // Limpando os campos depois que for Digitado
+    //#################################
     document.getElementById('nome').value = ''
     document.getElementById('nota').value = ''
 }
+
 
 //#################################
 // Função Para Não repetir codigo
 //#################################
 function atualizarLista() {
+
+    //#################################
     //Server para não repetir 
+    //#################################
     res.innerHTML = ''
     media = 0 // zerarando a soma antes do forEach. // Reset da soma!!!
     indice = 0
+    maiorNota = -Infinity
+    menorNota = Infinity
     aprovados = 0
     reprovados = 0
     recuperação = 0
@@ -149,11 +172,10 @@ function atualizarLista() {
         }
 
         //#################################
-        // Quantidade de Aprovados
-        //#################################
+         // Quantidade de Aprovados
+         //#################################
         if (item.nota >= mediaPassarDeAno) {
             aprovados++
-            return
         }else if (item.nota >= 5 && item.nota < mediaPassarDeAno) {
             // Quantidade de recuperação
             recuperação++
@@ -197,6 +219,4 @@ function CalcularResultado() {
 
     // Recuperação
     rec.innerText = `Quantidade de recuperação: ${recuperação}`
-
-    atualizarLista()
 }
