@@ -117,4 +117,19 @@ body {
     background-color: rgb(203, 0, 0);
 }
 
+@media screen and (max-width: 992px){
+    body {
+        display: flex;
+        flex-direction: column;
+    }
 
+    #container {
+        max-height: 800px;
+    }
+
+    .alunos {
+        width: 185px;
+    }
+
+    
+}
