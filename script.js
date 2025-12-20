@@ -53,7 +53,6 @@ let res = document.getElementById('lista')
 //#################################
 // Saidas da div status 
 //#################################
-let stats = document.getElementById('status')
 
 //#################################
 // Saida das estatistica
@@ -151,7 +150,7 @@ function atualizarLista() {
         res.innerHTML += 
         `
             <div class="alunos">
-                    <div id="status"></div>
+                    <div class="status"></div>
                     <p>Aluno: ${item.nome}</p>
                     <p>Nota: ${item.nota.toFixed(2)}</p>
                     <button onclick="Remover(${indice})">Remover</button>
@@ -159,6 +158,15 @@ function atualizarLista() {
         `
         media += item.nota // Acumulando o valor
         
+
+        const status = document.querySelectorAll('.status')
+        const ultimoStatus = status[status.length - 1]
+
+        if (item.nota >= mediaPassarDeAno) {
+        ultimoStatus.style.backgroundColor = 'green'
+        }      
+
+
         //#################################
         // Maior nota 
         //#################################
@@ -178,7 +186,6 @@ function atualizarLista() {
          //#################################
         if (item.nota >= mediaPassarDeAno) {
             aprovados++
-            stats.classList.add('verde')
         }else if (item.nota >= 5 && item.nota < mediaPassarDeAno) {
             // Quantidade de recuperação
             recuperação++
@@ -190,6 +197,8 @@ function atualizarLista() {
         
 
     });
+
+    
     
 }
 

@@ -84,7 +84,7 @@ body {
     color: blue;
 }
 
-.alunos > #status {
+.alunos > .status {
     width: 15px;
     height: 15px;
     border-radius: 50%;
