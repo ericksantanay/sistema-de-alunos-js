@@ -4,11 +4,6 @@
 let armazenarDados = []
 
 //#################################
-// Indice para percorrer o array
-//#################################
-indice = 0
-
-//#################################
 // Media da turma 
 //#################################
 let media = 0
@@ -53,6 +48,7 @@ let res = document.getElementById('lista')
 //#################################
 // Saidas da div status 
 //#################################
+const status = document.querySelectorAll('.status')
 
 //#################################
 // Saida das estatistica
@@ -195,8 +191,6 @@ function atualizarLista() {
             ultimoStatus.style.backgroundColor = 'red'
         }
 
-        
-
     });
 
     
@@ -217,8 +211,10 @@ function Remover(indice) {
 // Função da estatistica
 //#################################
 function CalcularResultado() {
+    mediaFinal = media / armazenarDados.length
+
     // Media da turma
-    me.innerText = `Média geral da turma: ${media.toFixed(2)}`
+    me.innerText = `Média geral da turma: ${mediaFinal.toFixed(2)}`
 
     // Maior Nota 
     maiorN.innerText = `Maior nota: ${maiorNota}`
