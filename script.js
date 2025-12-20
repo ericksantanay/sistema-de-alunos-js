@@ -8,7 +8,7 @@ indice = 0
 let media = 0
 
 // Maior Nota da Turma
-let maiorNota = 0
+let maiorNota = armazenarDados[0]
 
 // Menor Nota 
 let menorNota = 0
@@ -77,11 +77,7 @@ function atualizarLista() {
     //Server para não repetir 
     res.innerHTML = ''
     media = 0 // zerarando a soma antes do forEach. // Reset da soma!!!
-    maiorNota = 0
-    menorNota = 0 
-    aprovados = 0
-    reprovados = 0
-    recuperação = 0
+   
 
 
     // Laço que vai percorrer o array 
@@ -91,12 +87,17 @@ function atualizarLista() {
         `
             <div class="alunos">
                     <p>Aluno: ${item.nome}</p>
-                    <p>Nota: ${item.nota}</p>
+                    <p>Nota: ${item.nota.toFixed(2)}</p>
                     <button onclick="Remover(${indice})">Remover</button>
             </div>
         `
         media += item.nota // Acumulando o valor
+        
     });
+
+    
+
+    
 }
 
 
@@ -116,8 +117,17 @@ function Remover(indice) {
 // Função da estatistica
 function CalcularResultado() {
     
-    me.innerText = `Média geral da turma: ${media}`
-   
+    me.innerText = `Média geral da turma: ${media.toFixed(2)}`
+
+    // Maior nota Loop For of
+
+    for(n of armazenarDados) {
+        if (n > armazenarDados.length) {
+            maiorNota = n
+        }
+    }
+
+    maiorN.innerText = `Maior nota: ${maiorNota}`
 
 
     atualizarLista()
