@@ -70,6 +70,10 @@ function atualizarLista() {
         media += item.nota
     });
 
+    
+
+
+
 }
 
 // Função de remover o aluno
@@ -80,21 +84,9 @@ function Remover(indice) {
 }
 
 
-
 // Função da estatistica
 function CalcularResultado() {
-    estatisca.innerHTML = 
-    `
-    <div>
-            <p>Média geral da turma: ${media}</p>
-            <p>Maior nota:</p>
-            <p>Menor nota:</p>
-            <p>Quantidade de aprovados:</p>
-            <p>Quantidade de reprovados:</p>
-            <p>Quantidade de recuperação:</p>
-    </div>
-
-    `
+   
 
     atualizarLista()
 }
