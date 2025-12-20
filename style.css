@@ -71,6 +71,7 @@ body {
 }
 
 #lista {
+    display: none;
     max-height: 480px;
     padding: 20px;
     border-radius: 5px;

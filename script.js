@@ -101,6 +101,9 @@ function Adicionar() {
         return
     }
 
+    // Aparecendo o nome dos alunos
+    res.style.display = 'block'
+    
     //#################################
     // Colocando tudo em um objeto
     //#################################
@@ -160,12 +163,7 @@ function atualizarLista() {
         
 
         const status = document.querySelectorAll('.status')
-        const ultimoStatus = status[status.length - 1]
-
-        if (item.nota >= mediaPassarDeAno) {
-        ultimoStatus.style.backgroundColor = 'green'
-        }      
-
+        const ultimoStatus = status[status.length - 1]   
 
         //#################################
         // Maior nota 
@@ -186,12 +184,15 @@ function atualizarLista() {
          //#################################
         if (item.nota >= mediaPassarDeAno) {
             aprovados++
+            ultimoStatus.style.backgroundColor = 'green'
         }else if (item.nota >= 5 && item.nota < mediaPassarDeAno) {
             // Quantidade de recuperação
             recuperação++
+            ultimoStatus.style.backgroundColor = 'orange'
         }else if (item.nota < 5){
             // Quantidade de reprovados
             reprovados++
+            ultimoStatus.style.backgroundColor = 'red'
         }
 
         
