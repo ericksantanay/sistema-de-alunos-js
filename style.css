@@ -117,7 +117,7 @@ body {
     background-color: rgb(203, 0, 0);
 }
 
-@media screen and (max-width: 992px){
+@media screen and (max-width: 792px){
     body {
         display: flex;
         flex-direction: column;
