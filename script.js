@@ -1,53 +1,83 @@
+//#################################
 // Array para armazenar os dados
+//#################################
 let armazenarDados = []
 
+//#################################
 // Indice para percorrer o array
+//#################################
 indice = 0
 
+//#################################
 // Media da turma 
+//#################################
 let media = 0
 
+//#################################
 // Maior Nota da Turma
-let maiorNota = armazenarDados[0]
+//#################################
+let maiorNota = -Infinity
 
+//#################################
 // Menor Nota 
-let menorNota = 0
+//#################################
+let menorNota = Infinity
 
+//#################################
 // Aprovados
+//#################################
 let aprovados = 0
 
+//#################################
 // Reprovados
+//#################################
 let reprovados = 0
 
+//#################################
 // Recuperação
+//#################################
 let recuperação
 
-
+//#################################
 // Saidas
+//#################################
 let res = document.getElementById('lista')
 
-
+//#################################
 // Saida das estatistica
 // Saida da media
+//#################################
 let me = document.getElementById('media')
 
+//#################################
 // Saida da maior nota
+//#################################
 let maiorN = document.getElementById('maiorNota')
 
+//#################################
 // Saida da menor Nota
+//#################################
 let menorN = document.getElementById('menorNota')
 
+//#################################
 // Saida dos aprovados
-let ap = document.getAnimations('aprovados')
+//#################################
+let ap = document.getElementById('aprovados')
 
+//#################################
 // Saida dos Reprovados
+//#################################
 let rep = document.getElementById('reprovados')
 
+//#################################
 // Saida dos que estão em Recuperação
+//#################################
 let rec = document.getElementById('recuperacao')
 
 
+//#################################
 // Função adicionar
+//#################################
 function Adicionar() {
     let nome = document.getElementById('nome').value
     let nota = Number(document.getElementById('nota').value)
@@ -57,6 +87,7 @@ function Adicionar() {
         return
     }
 
+    //#################################
     // Colocando tudo em um objeto
     let dados = {
         nome: nome,
@@ -71,8 +102,9 @@ function Adicionar() {
     document.getElementById('nota').value = ''
 }
 
-
+//#################################
 // Função Para Não repetir codigo
+//#################################
 function atualizarLista() {
     //Server para não repetir 
     res.innerHTML = ''
@@ -92,7 +124,18 @@ function atualizarLista() {
             </div>
         `
         media += item.nota // Acumulando o valor
-        
+
+        // Maior nota 
+        if (item.nota > maiorNota) {
+            maiorNota = item.nota
+        }
+
+
+        //Menor Nota
+        if (item.nota < menorNota) {
+            menorNota = item.nota
+        }
+
     });
 
     
@@ -100,11 +143,9 @@ function atualizarLista() {
     
 }
 
-
-
-
-
+//#################################
 // Função de remover o aluno
+//#################################
 function Remover(indice) {
 
     armazenarDados.splice(indice, 1)
@@ -112,22 +153,20 @@ function Remover(indice) {
 }
 
 
-
-
+//#################################
 // Função da estatistica
+//#################################
 function CalcularResultado() {
-    
+    // Media da turma
     me.innerText = `Média geral da turma: ${media.toFixed(2)}`
 
-    // Maior nota Loop For of
-
-    for(n of armazenarDados) {
-        if (n > armazenarDados.length) {
-            maiorNota = n
-        }
-    }
-
+    // Maior Nota 
     maiorN.innerText = `Maior nota: ${maiorNota}`
+
+    // Menor Nota
+    menorN.innerText = `Menor nota: ${menorNota}`
+
+
 
 
     atualizarLista()
